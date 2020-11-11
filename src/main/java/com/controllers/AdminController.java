@@ -1,6 +1,6 @@
 package com.controllers;
 
-import com.model.IndividualPerson;
+import com.users.IndividualPerson;
 import com.service.AdminService;
 
 import java.util.List;
@@ -20,7 +20,6 @@ public class AdminController {
     public AdminController(AdminService adminService) {
         this.adminService = adminService;
     }
-
 
     // Create individual person user
     public void createIndividualPersonUser(String username, String password, String firstName, String lastName,

@@ -1,4 +1,4 @@
-package com.model;
+package com.users;
 
 import com.dto.CreditBankAccountDTO;
 import com.dto.DebitBankAccountDTO;

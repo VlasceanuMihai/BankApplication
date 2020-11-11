@@ -1,9 +1,8 @@
 package com.repository;
 
-import com.model.IndividualPerson;
+import com.users.IndividualPerson;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Project: AplicatieBancara

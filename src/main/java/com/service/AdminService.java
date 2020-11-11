@@ -1,6 +1,6 @@
 package com.service;
 
-import com.model.IndividualPerson;
+import com.users.IndividualPerson;
 import com.repository.IndividualPersonRepository;
 import com.repository.LegalPersonRepository;
 

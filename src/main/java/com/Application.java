@@ -1,7 +1,6 @@
 package com;
 
 import com.controllers.AdminController;
-import com.model.IndividualPerson;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

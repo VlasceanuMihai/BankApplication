@@ -1,4 +1,4 @@
-package com.model;
+package com.users;
 
 import lombok.Getter;
 import lombok.Setter;
