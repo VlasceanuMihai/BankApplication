@@ -56,6 +56,7 @@ public class AdminService {
         return this.clientRepository.getClientList();
     }
 
-//    public List<IndividualClient> getIndividualClientList(){
-//    }
+    public void createDebitBankAccount(){
+
+    }
 }

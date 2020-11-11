@@ -17,10 +17,6 @@
         <constructor-arg ref = "clientRepository"/>
     </bean>
 
-    <bean id="clientRepository"
-          class="com.repository.ClientRepository">
-    </bean>
-
 
 <!--    Login functionality-->
     <bean id="loginController"
@@ -34,4 +30,20 @@
     </bean>
 
 
+<!--    Client functionality-->
+    <bean id="clientController"
+          class="com.controllers.ClientController">
+         <constructor-arg ref="clientService"/>
+    </bean>
+
+    <bean id="clientService"
+          class="com.service.ClientService">
+        <constructor-arg ref="clientRepository"/>
+    </bean>
+
+
+<!--    Repositories-->
+    <bean id="clientRepository"
+          class="com.repository.ClientRepository">
+    </bean>
 </beans>

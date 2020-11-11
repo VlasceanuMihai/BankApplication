@@ -50,7 +50,21 @@ public class ClientRepository<T extends Client> {
         throw new GetClientException("A user with username: " + username + " doesn't exist!");
     }
 
-//    public void updateFirstName(T client, String firstName){
+    public T getClient(String username){
+        for (T  client : this.clientList){
+            if (client.getUsername().equals(username)){
+                return client;
+            }
+        }
+
+        throw new GetClientException("The user with username: " + username + " doesn't exist!");
+    }
+
+    public List<T> getClientList(){
+        return this.clientList;
+    }
+
+    //    public void updateFirstName(T client, String firstName){
 //        if (this.clientList.contains(client))
 //        for (Client clientUser : clientList){
 //            if (this.clientList.contains(client)){
@@ -70,20 +84,6 @@ public class ClientRepository<T extends Client> {
 //            System.out.println("The user doesn't exist!");
 //        }
 //    }
-
-    public T getClient(String username){
-        for (T  client : this.clientList){
-            if (client.getUsername().equals(username)){
-                return client;
-            }
-        }
-
-        throw new GetClientException("The user with username: " + username + " doesn't exist!");
-    }
-
-    public List<T> getClientList(){
-        return this.clientList;
-    }
 
 //    public List<T> getIndividualClientList(){
 //
