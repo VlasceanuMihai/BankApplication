@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Project: AplicatieBancara
@@ -16,8 +17,10 @@ import java.util.List;
 
 @Getter
 @Setter
-public abstract class Client {
+public abstract class Client implements Comparable<Client>{
 
+    @Getter
+    @Setter
     private static Long id = 0L;
     private String username;
     private String password;
@@ -34,9 +37,34 @@ public abstract class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "id = " + id + '\'' +
+                ", username = '" + this.username + '\'' +
+                ", debitAccounts = '" + this.debitList.size() + '\'' +
+                ", creditAccounts = '" + this.creditList.size() + '\'';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+
+        Client client = (Client) o;
+        return this.username.equals(client.username);
+    }
+
+    @Override
+    public int hashCode() {
+        int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.username == null) ? 0 : username.hashCode());
+        return result;
+    }
+
+    @Override
+    public int compareTo(Client o) {
+        if (!this.getUsername().equals(o.getUsername())){
+            return o.getUsername().compareTo(o.getUsername());
+        }
+        return this.getUsername().compareTo(o.getUsername());
     }
 }

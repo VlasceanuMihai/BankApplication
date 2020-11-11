@@ -23,10 +23,18 @@ public class Application {
     public void testCreateNewUser(){
         AdminController adminController = APPLICATION_CONTEXT.getBean("adminController", AdminController.class);
 
-        adminController.createIndividualPersonUser("mihai", "1234", "Mihai",
+        adminController.createIndividualClient("mihai", "1234", "Mihai",
                 "Vlasceanu", "1960122440022", 3700);
 
-        System.out.println(adminController.getIndividualUsers());
+        adminController.createIndividualClient("mihai", "1234", "wdaw",
+                "esgfswe", "1960122440022", 6700);
 
+        adminController.createIndividualClient("vlasceanu", "123456", "Vls",
+                "Vls", "1960122357222", 4000);
+
+        adminController.createLegalClient("mihai", "abcde", "Mihai SRL", "123456",
+                10, 2000);
+
+        adminController.removeClient("mihai");
     }
 }
