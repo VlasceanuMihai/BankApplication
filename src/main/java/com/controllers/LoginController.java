@@ -16,7 +16,11 @@ public class LoginController {
 
     private LoginService loginService;
 
-    public void login(String username, String password){
-        this.loginService.login(username, password);
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
+    }
+
+    public boolean login(String username, String password){
+        return this.loginService.login(username, password);
     }
 }

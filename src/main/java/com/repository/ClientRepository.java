@@ -16,6 +16,7 @@ public class ClientRepository<T extends Client> {
 
     private final List<T> clientList = new ArrayList<>();
 
+
     public void addClient(T client){
         for (T c : this.clientList){
             if (c.getUsername().equals(client.getUsername())){
@@ -29,8 +30,6 @@ public class ClientRepository<T extends Client> {
         System.out.println(this.getClientList() + "\n");
     }
 
-
-
     public void removeClient(String username){
         boolean b = this.clientList.removeIf(client -> client.getUsername().equals(username));
         if (b){
@@ -39,6 +38,16 @@ public class ClientRepository<T extends Client> {
             return;
         }
         System.out.println("The user with username: " + username + " doesn't exist!");
+    }
+
+    public T findClientByUsername(String username){
+        for (T user : this.clientList){
+            if (user.getUsername().equals(username)){
+                return user;
+            }
+        }
+
+        throw new GetClientException("A user with username: " + username + " doesn't exist!");
     }
 
 //    public void updateFirstName(T client, String firstName){
@@ -75,4 +84,8 @@ public class ClientRepository<T extends Client> {
     public List<T> getClientList(){
         return this.clientList;
     }
+
+//    public List<T> getIndividualClientList(){
+//
+//    }
 }

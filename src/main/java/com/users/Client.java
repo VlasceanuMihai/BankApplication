@@ -24,6 +24,7 @@ public abstract class Client implements Comparable<Client>{
     private static Long id = 0L;
     private String username;
     private String password;
+    private boolean isLogged;
     private List<DebitBankAccountDTO> debitList;
     private List<CreditBankAccountDTO> creditList;
 

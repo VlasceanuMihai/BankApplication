@@ -55,4 +55,7 @@ public class AdminService {
     public List<Client> getClientList(){
         return this.clientRepository.getClientList();
     }
+
+//    public List<IndividualClient> getIndividualClientList(){
+//    }
 }

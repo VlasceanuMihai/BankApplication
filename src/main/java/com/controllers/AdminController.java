@@ -38,6 +38,7 @@ public class AdminController {
         this.adminService.removeClient(username);
     }
 
+    // Get client list: get all clients (Individuals + Legals)
     public List<Client> getClientList(){
        return this.adminService.getClientList();
     }

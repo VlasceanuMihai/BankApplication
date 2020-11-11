@@ -24,12 +24,13 @@
 
 <!--    Login functionality-->
     <bean id="loginController"
-    class="com.controllers.LoginController">
-        <property name="loginService" ref="loginService"/>
+          class="com.controllers.LoginController">
+        <constructor-arg ref="loginService"/>
     </bean>
 
     <bean id="loginService"
-    class="com.service.LoginService">
+          class="com.service.LoginService">
+        <constructor-arg ref="clientRepository"/>
     </bean>
 
 

@@ -1,6 +1,7 @@
 package com;
 
 import com.controllers.AdminController;
+import com.controllers.LoginController;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -22,7 +23,9 @@ public class Application {
     @Test
     public void testCreateNewUser(){
         AdminController adminController = APPLICATION_CONTEXT.getBean("adminController", AdminController.class);
+        LoginController loginController = APPLICATION_CONTEXT.getBean("loginController", LoginController.class);
 
+        // Create/remove clients
         adminController.createIndividualClient("mihai", "1234", "Mihai",
                 "Vlasceanu", "1960122440022", 3700);
 
@@ -36,5 +39,9 @@ public class Application {
                 10, 2000);
 
         adminController.removeClient("mihai");
+
+        // Login
+        loginController.login("vlasceanu", "123456");
+        loginController.login("mihai", "123456");
     }
 }
