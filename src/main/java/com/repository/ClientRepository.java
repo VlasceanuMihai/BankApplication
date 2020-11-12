@@ -27,18 +27,18 @@ public class ClientRepository<T extends Client>  implements Serializable {
 
         this.clientList.add(client);
         client.generateId();
-        System.out.println("User with username: " + client.getUsername() + " added successfully.");
+        System.out.println("[REGISTER SUCCESS] User with username: " + client.getUsername() + " added successfully.");
         System.out.println(this.getClientList() + "\n");
     }
 
     public void removeClient(String username){
         boolean b = this.clientList.removeIf(client -> client.getUsername().equals(username));
         if (b){
-            System.out.println("User with username: " + username + " has been removed!");
+            System.out.println("[DELETE SUCCESS] User with username: " + username + " has been removed!");
             System.out.println(this.getClientList() + "\n");
             return;
         }
-        System.out.println("The user with username: " + username + " doesn't exist!");
+        System.out.println("[ERROR] The user with username: " + username + " doesn't exist!");
     }
 
     public T findClientByUsername(String username){
@@ -48,7 +48,7 @@ public class ClientRepository<T extends Client>  implements Serializable {
             }
         }
 
-        throw new GetClientException("A user with username: " + username + " doesn't exist!");
+        throw new GetClientException("[ERROR] The user with username: " + username + " doesn't exist!");
     }
 
     public T getClient(String username){
@@ -58,7 +58,7 @@ public class ClientRepository<T extends Client>  implements Serializable {
             }
         }
 
-        throw new GetClientException("The user with username: " + username + " doesn't exist!");
+        throw new GetClientException("[ERROR] The user with username: " + username + " doesn't exist!");
     }
 
     public List<T> getClientList(){

@@ -48,8 +48,8 @@ public class AdminController {
         this.adminService.createDebitBankAccount(username, amount);
     }
 
-//    // Create debit bank account
-//    public void createCreditBankAccount(String username){
-//        this.adminService.createCreditBankAccount(username);
-//    }
+    // Create debit bank account
+    public void createCreditBankAccount(String username, double amount){
+        this.adminService.createCreditBankAccount(username, amount);
+    }
 }

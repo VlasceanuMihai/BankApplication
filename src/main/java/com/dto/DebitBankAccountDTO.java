@@ -12,15 +12,26 @@ import java.util.UUID;
 
 public class DebitBankAccountDTO {
 
-    private static Long id;
+    private static Long counter = 0L;
+    private Long id = 0L;
     private Long ownerId;
     private UUID iban;
     private double amount;
 
     public DebitBankAccountDTO(Long ownerId, double amount) {
-        id++;
+        this.id = counter++;
         this.ownerId = ownerId;
         this.iban = UUID.randomUUID();;
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return "DebitBankAccountDTO{" +
+                "id = " + this.id +
+                ", ownerId = " + this.ownerId +
+                ", iban = " + this.iban +
+                ", amount = " + this.amount +
+                '}';
     }
 }

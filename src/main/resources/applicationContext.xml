@@ -18,7 +18,8 @@
     </bean>
 
     <bean id="adminService"
-          class="com.service.AdminService">
+          class="com.service.AdminService"
+          lazy-init="true">
         <constructor-arg ref = "clientRepository"/>
     </bean>
 
@@ -30,7 +31,8 @@
     </bean>
 
     <bean id="loginService"
-          class="com.service.LoginService">
+          class="com.service.LoginService"
+          lazy-init="true">
         <constructor-arg ref="clientRepository"/>
     </bean>
 
@@ -42,7 +44,8 @@
     </bean>
 
     <bean id="clientService"
-          class="com.service.ClientService">
+          class="com.service.ClientService"
+          lazy-init="true">
         <constructor-arg ref="clientRepository"/>
     </bean>
 

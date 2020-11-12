@@ -23,15 +23,15 @@ public class LoginService {
         try{
             Client client = this.clientClientRepository.findClientByUsername(username);
             if (password.equals(client.getPassword())){
-                System.out.println("Login successful! Welcome " + username + "!\n");
+                System.out.println("[LOGIN SUCCESS] Login successful! Welcome " + username + "!\n");
                 doPasswordsMatch = true;
                 client.setLogged(true);
             }else {
-                System.out.println("Wrong password!");
+                System.out.println("[INVALID PASSWORD] Invalid password for user " + username + "!\n");
                 client.setLogged(false);
             }
         }catch (GetClientException e){
-            System.out.println("The user with username: " + username + " doesn't exist!\n");
+            System.out.println("[ERROR] The user with username: " + username + " doesn't exist!\n");
         }
 
         return doPasswordsMatch;

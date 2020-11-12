@@ -46,12 +46,18 @@ public class Application {
         // Create/remove clients
         adminController.createIndividualClient("mihai", "1234", "Mihai",
                 "Vlasceanu", "1960122440022", 3700);
+        adminController.createDebitBankAccount("mihai", 19000);
+        adminController.createCreditBankAccount("mihai", 2500);
 
         adminController.createIndividualClient("mihai", "1234", "wdaw",
                 "esgfswe", "1960122440022", 6700);
 
         adminController.createIndividualClient("vlasceanu", "123456", "Vls",
                 "Vls", "1960122357222", 4000);
+        adminController.createDebitBankAccount("mihai", 4000);
+        adminController.createCreditBankAccount("mihai", 1000);
+        adminController.createDebitBankAccount("vlasceanu", 1200);
+        adminController.createCreditBankAccount("vlasceanu", 250);
 
         adminController.createLegalClient("mihai", "abcde", "Mihai SRL", "123456",
                 10, 2000);
@@ -59,11 +65,15 @@ public class Application {
         adminController.createLegalClient("andrei", "123asd", "Andrei SRL", "6543",
                 23, 4323);
 
-        adminController.removeClient("mihai");
+        adminController.createIndividualClient("teo", "123", "Teo",
+                "Teo", "4562352", 2540);
 
         // Login
         loginController.login("vlasceanu", "123456");
-        loginController.login("mihai", "123456");
+        loginController.login("andrei", "123456");
+        loginController.login("andrei", "123asd");
+        adminController.removeClient("andrei");
+        loginController.login("andrei", "123asd");
     }
 
 

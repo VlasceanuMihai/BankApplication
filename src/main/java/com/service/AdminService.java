@@ -1,5 +1,6 @@
 package com.service;
 
+import com.dto.CreditBankAccountDTO;
 import com.dto.DebitBankAccountDTO;
 import com.exceptions.GetClientException;
 import com.repository.ClientRepository;
@@ -66,15 +67,27 @@ public class AdminService {
         try{
             Client client = this.clientRepository.findClientByUsername(username);
             client.getDebitList().add(new DebitBankAccountDTO(client.getUniqId(), amount));
-
+            System.out.println("[DEBIT ACCOUNT] Debit bank account created for user " + username + "!\n" + client.getDebitList() + "\n");
         }catch (GetClientException e){
-            System.out.println("A user with username: " + username + " doesn't exist!\n");
+            System.out.println("[INVALID] A user with username: " + username + " doesn't exist!\n");
         }
     }
 
-//    public void createCreditBankAccount(String username){
-//        try{
-//            this.clientRepository.findClientByUsername(username);
-//        }
-//    }
+    public void createCreditBankAccount(String username, double amount){
+        try{
+            Client client = this.clientRepository.findClientByUsername(username);
+            double limitAmount = 0;
+            if (client instanceof IndividualClient){
+                limitAmount = ((IndividualClient) client).getWage();
+            }else if (client instanceof LegalClient){
+                limitAmount = ((LegalClient) client).getCapital() * (10.0 / 100);
+            }
+
+            client.getCreditList().add(new CreditBankAccountDTO(client.getUniqId(), amount, limitAmount));
+            System.out.println("[CREDIT ACCOUNT] Credit bank account created for user " + username + "!\n" + client.getCreditList() + "\n");
+        }catch (GetClientException e){
+            System.out.println("[INVALID] A user with username: " + username + " doesn't exist!\n");
+        }
+
+    }
 }

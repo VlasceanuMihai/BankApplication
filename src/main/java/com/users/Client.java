@@ -21,14 +21,14 @@ public abstract class Client implements Comparable<Client>{
 
     @Getter
     @Setter
-    private static Long id = 0L;
+    private static Long counter = 0L;
     private String username;
     private String password;
     private boolean isLogged;
     private List<DebitBankAccountDTO> debitList;
     private List<CreditBankAccountDTO> creditList;
 
-    private Long uniqId;
+    private Long uniqId = 0L;
     @Getter
     private static Long numberOfClients = 0L;
 
@@ -41,7 +41,7 @@ public abstract class Client implements Comparable<Client>{
     }
 
     public void generateId(){
-        this.uniqId = id++;
+        this.uniqId = counter++;
     }
 
     public void decrementNumberOfClients(){
