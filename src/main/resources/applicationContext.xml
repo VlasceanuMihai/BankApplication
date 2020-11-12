@@ -6,32 +6,52 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="loginService"
-          class="com.service.LoginService">
-    </bean>
+<!--    <bean id="application"-->
+<!--          class="com.Application">-->
+<!--        <property name="clientRepository" ref="clientRepository"/>-->
+<!--    </bean>-->
 
-    <bean id="loginController"
-          class="com.controllers.LoginController">
-        <property name="loginService" ref="loginService"/>
-    </bean>
-
-
+<!--    Admin functionality-->
     <bean id="adminController"
           class="com.controllers.AdminController">
         <constructor-arg ref="adminService"/>
     </bean>
 
     <bean id="adminService"
-    class="com.service.AdminService">
-        <constructor-arg ref = "individualPersonRepository"/>
-        <constructor-arg ref = "legalPersonRepository"/>
+          class="com.service.AdminService"
+          lazy-init="true">
+        <constructor-arg ref = "clientRepository"/>
     </bean>
 
-    <bean id="individualPersonRepository"
-    class="com.repository.IndividualPersonRepository">
+
+<!--    Login functionality-->
+    <bean id="loginController"
+          class="com.controllers.LoginController">
+        <constructor-arg ref="loginService"/>
     </bean>
 
-    <bean id="legalPersonRepository"
-    class="com.repository.LegalPersonRepository">
+    <bean id="loginService"
+          class="com.service.LoginService"
+          lazy-init="true">
+        <constructor-arg ref="clientRepository"/>
+    </bean>
+
+
+<!--    Client functionality-->
+    <bean id="clientController"
+          class="com.controllers.ClientController">
+         <constructor-arg ref="clientService"/>
+    </bean>
+
+    <bean id="clientService"
+          class="com.service.ClientService"
+          lazy-init="true">
+        <constructor-arg ref="clientRepository"/>
+    </bean>
+
+
+<!--    Repositories-->
+    <bean id="clientRepository"
+          class="com.repository.ClientRepository">
     </bean>
 </beans>

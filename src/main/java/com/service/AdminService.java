@@ -1,8 +1,12 @@
 package com.service;
 
-import com.model.IndividualPerson;
-import com.repository.IndividualPersonRepository;
-import com.repository.LegalPersonRepository;
+import com.dto.CreditBankAccountDTO;
+import com.dto.DebitBankAccountDTO;
+import com.exceptions.GetClientException;
+import com.repository.ClientRepository;
+import com.users.Client;
+import com.users.IndividualClient;
+import com.users.LegalClient;
 
 import java.util.List;
 
@@ -22,25 +26,68 @@ Are rolul de a executa logica accesata de admin. Functionalitati implementate:
 
 public class AdminService {
 
-    private IndividualPersonRepository individualPersonRepository;
-    private LegalPersonRepository legalPersonRepository;
+    private final ClientRepository<Client> clientRepository;
 
-    public AdminService(IndividualPersonRepository individualPersonRepository, LegalPersonRepository legalPersonRepository) {
-        this.individualPersonRepository = individualPersonRepository;
-        this.legalPersonRepository = legalPersonRepository;
+    public AdminService(ClientRepository<Client> clientRepository) {
+        this.clientRepository = clientRepository;
     }
 
-    public void createIndividualPersonUser(String username, String password, String fistName, String lastName, String cnp, double wage){
-        this.individualPersonRepository.addUser(username, new IndividualPerson(username, password, fistName, lastName, cnp, wage));
+
+    public void createIndividualClient(String username,
+                                       String password,
+                                       String fistName,
+                                       String lastName,
+                                       String cnp,
+                                       double wage){
+        this.clientRepository.addClient(new IndividualClient(username, password, fistName, lastName, cnp, wage));
     }
 
-    public void createLegalPersonUser(String username, String password, String companyName, String cui,
-                                      double costTransaction, double capital){
-
+    public void createLegalClient(String username,
+                                  String password,
+                                  String companyName,
+                                  String cui,
+                                  double costTransaction,
+                                  double capital){
+        this.clientRepository.addClient(new LegalClient(username, password, companyName, cui, costTransaction, capital));
     }
 
-    public List<IndividualPerson> getIndividualUsers(){
-        return this.individualPersonRepository.getIndividualUsers();
+    public void removeClient(String username){
+        this.clientRepository.removeClient(username);
+        try {
+            this.clientRepository.findClientByUsername(username).decrementNumberOfClients();
+        }catch (GetClientException e){
+        }
     }
 
+    public List<Client> getClientList(){
+        return this.clientRepository.getClientList();
+    }
+
+    public void createDebitBankAccount(String username, double amount){
+        try{
+            Client client = this.clientRepository.findClientByUsername(username);
+            client.getDebitList().add(new DebitBankAccountDTO(client.getUniqId(), amount));
+            System.out.println("[DEBIT ACCOUNT] Debit bank account created for user " + username + "!\n" + client.getDebitList() + "\n");
+        }catch (GetClientException e){
+            System.out.println("[INVALID] A user with username: " + username + " doesn't exist!\n");
+        }
+    }
+
+    public void createCreditBankAccount(String username, double amount){
+        try{
+            Client client = this.clientRepository.findClientByUsername(username);
+            double limitAmount = 0;
+            if (client instanceof IndividualClient){
+                limitAmount = ((IndividualClient) client).getWage();
+            }else if (client instanceof LegalClient){
+                limitAmount = ((LegalClient) client).getCapital() * (10.0 / 100);
+            }
+
+            client.getCreditList().add(new CreditBankAccountDTO(client.getUniqId(), amount, limitAmount));
+            System.out.println("[CREDIT ACCOUNT] Credit bank account created for user " + username + "!\n" + client.getCreditList() + "\n");
+        }catch (GetClientException e){
+            System.out.println("[INVALID] A user with username: " + username + " doesn't exist!\n");
+        }
+
+    }
 }

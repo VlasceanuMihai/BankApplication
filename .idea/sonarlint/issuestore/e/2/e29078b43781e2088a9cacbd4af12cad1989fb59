@@ -1,17 +1,0 @@
-
-N	java:S106"9Replace this use of System.out or System.err by a logger.(Á¼Ãœ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(‹Æç›üÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(âäØÙþÿÿÿÿ
-N	java:S106/"9Replace this use of System.out or System.err by a logger.(•ÅÞÍ
-N	java:S1068"9Replace this use of System.out or System.err by a logger.(•ÅÞÍ
-m
-java:S1192&"WDefine a constant instead of duplicating this literal "User has been updated!" 3 times.(•ÅÞÍ
-N	java:S106&"9Replace this use of System.out or System.err by a logger.(•ÅÞÍ
-S
-java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ
-N	java:S1061"9Replace this use of System.out or System.err by a logger.(Á¼Ãœ
-N	java:S106"9Replace this use of System.out or System.err by a logger.(ÿêÄÖ
-N	java:S106("9Replace this use of System.out or System.err by a logger.(Á¼Ãœ
-N	java:S106:"9Replace this use of System.out or System.err by a logger.(Á¼Ãœ
-n
-java:S1192"XDefine a constant instead of duplicating this literal "The user doesn't exist!" 4 times.(Á¼Ãœ
