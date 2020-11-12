@@ -1,5 +1,7 @@
 package com.dto;
 
+import java.util.UUID;
+
 /**
  * Project: AplicatieBancara
  * Author: mihai
@@ -10,8 +12,15 @@ package com.dto;
 
 public class DebitBankAccountDTO {
 
-    private Long id;
+    private static Long id;
     private Long ownerId;
-    private String iban;
+    private UUID iban;
     private double amount;
+
+    public DebitBankAccountDTO(Long ownerId, double amount) {
+        id++;
+        this.ownerId = ownerId;
+        this.iban = UUID.randomUUID();;
+        this.amount = amount;
+    }
 }

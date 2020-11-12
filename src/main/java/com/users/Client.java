@@ -22,21 +22,26 @@ public abstract class Client implements Comparable<Client>{
     @Getter
     @Setter
     private static Long id = 0L;
-    @Getter
-    private static Long numberOfClients = 0L;
     private String username;
     private String password;
     private boolean isLogged;
     private List<DebitBankAccountDTO> debitList;
     private List<CreditBankAccountDTO> creditList;
 
+    private Long uniqId;
+    @Getter
+    private static Long numberOfClients = 0L;
+
     public Client(String username, String password) {
-        id++;
         ++numberOfClients;
         this.username = username;
         this.password = password;
         this.debitList = new ArrayList<>();
         this.creditList = new ArrayList<>();
+    }
+
+    public void generateId(){
+        this.uniqId = id++;
     }
 
     public void decrementNumberOfClients(){
@@ -45,10 +50,10 @@ public abstract class Client implements Comparable<Client>{
 
     @Override
     public String toString() {
-        return "id = " + id + '\'' +
-                ", username = '" + this.username + '\'' +
-                ", debitAccounts = '" + this.debitList.size() + '\'' +
-                ", creditAccounts = '" + this.creditList.size() + '\'';
+        return "id = " + this.getUniqId() + '\'' +
+                ", username = '" + this.getUsername() + '\'' +
+                ", debitAccounts = '" + this.getDebitList().size() + '\'' +
+                ", creditAccounts = '" + this.getCreditList().size() + '\'';
     }
 
     @Override

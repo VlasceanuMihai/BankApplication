@@ -1,5 +1,6 @@
 package com.service;
 
+import com.dto.DebitBankAccountDTO;
 import com.exceptions.GetClientException;
 import com.repository.ClientRepository;
 import com.users.Client;
@@ -54,7 +55,6 @@ public class AdminService {
         try {
             this.clientRepository.findClientByUsername(username).decrementNumberOfClients();
         }catch (GetClientException e){
-            System.out.println("A user with username: " + username + " doesn't exist!\n");
         }
     }
 
@@ -62,7 +62,19 @@ public class AdminService {
         return this.clientRepository.getClientList();
     }
 
-    public void createDebitBankAccount(){
+    public void createDebitBankAccount(String username, double amount){
+        try{
+            Client client = this.clientRepository.findClientByUsername(username);
+            client.getDebitList().add(new DebitBankAccountDTO(client.getUniqId(), amount));
 
+        }catch (GetClientException e){
+            System.out.println("A user with username: " + username + " doesn't exist!\n");
+        }
     }
+
+//    public void createCreditBankAccount(String username){
+//        try{
+//            this.clientRepository.findClientByUsername(username);
+//        }
+//    }
 }

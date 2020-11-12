@@ -6,7 +6,6 @@ import com.repository.ClientRepository;
 import com.users.Client;
 import lombok.Getter;
 import lombok.Setter;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -23,7 +22,7 @@ public class Application {
     private static ApplicationContext APPLICATION_CONTEXT;
     private static final String file = "src/save.dat";
 
-    private static final long serialVersionUID = 1L;
+//    private static final long serialVersionUID = 1L;
 
     @Setter
     @Getter
@@ -68,29 +67,29 @@ public class Application {
     }
 
 
-    public static void saveFile() throws IOException {
-        try(ObjectOutputStream binaryFileOut = new ObjectOutputStream(
-                new BufferedOutputStream(new FileOutputStream(file)))){
-            binaryFileOut.writeObject(clientRepository);
-        }
-    }
-
-    public static ClientRepository<Client> restoreFile()throws IOException, ClassNotFoundException{
-        ClientRepository<Client> restoreClientRepository = null;
-
-        try(ObjectInputStream binaryFileIn = new ObjectInputStream(
-                new BufferedInputStream(new FileInputStream(file)))){
-            restoreClientRepository = (ClientRepository<Client>) binaryFileIn.readObject();
-        } catch (EOFException e) {
-            System.out.println("Empty file!");
-        }
-            return restoreClientRepository;
-    }
-
-    // Reset/Delete data from 'save.dat' file
-    private static void reset()throws IOException{
-        try (ObjectOutputStream reset = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))){
-            reset.reset();
-        }
-    }
+//    public static void saveFile() throws IOException {
+//        try(ObjectOutputStream binaryFileOut = new ObjectOutputStream(
+//                new BufferedOutputStream(new FileOutputStream(file)))){
+//            binaryFileOut.writeObject(clientRepository);
+//        }
+//    }
+//
+//    public static ClientRepository<Client> restoreFile()throws IOException, ClassNotFoundException{
+//        ClientRepository<Client> restoreClientRepository = null;
+//
+//        try(ObjectInputStream binaryFileIn = new ObjectInputStream(
+//                new BufferedInputStream(new FileInputStream(file)))){
+//            restoreClientRepository = (ClientRepository<Client>) binaryFileIn.readObject();
+//        } catch (EOFException e) {
+//            System.out.println("Empty file!");
+//        }
+//            return restoreClientRepository;
+//    }
+//
+//    // Reset/Delete data from 'save.dat' file
+//    private static void reset()throws IOException{
+//        try (ObjectOutputStream reset = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))){
+//            reset.reset();
+//        }
+//    }
 }

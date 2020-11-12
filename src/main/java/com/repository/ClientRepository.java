@@ -26,6 +26,7 @@ public class ClientRepository<T extends Client>  implements Serializable {
         }
 
         this.clientList.add(client);
+        client.generateId();
         System.out.println("User with username: " + client.getUsername() + " added successfully.");
         System.out.println(this.getClientList() + "\n");
     }

@@ -42,4 +42,14 @@ public class AdminController {
     public List<Client> getClientList(){
        return this.adminService.getClientList();
     }
+
+    // Create debit bank account
+    public void createDebitBankAccount(String username, double amount){
+        this.adminService.createDebitBankAccount(username, amount);
+    }
+
+//    // Create debit bank account
+//    public void createCreditBankAccount(String username){
+//        this.adminService.createCreditBankAccount(username);
+//    }
 }
