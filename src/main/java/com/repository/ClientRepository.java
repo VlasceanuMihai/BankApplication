@@ -2,8 +2,8 @@ package com.repository;
 
 import com.exceptions.GetClientException;
 import com.users.Client;
-import com.users.IndividualClient;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * Author: mihai
  * Date: 11/11/2020
  */
-public class ClientRepository<T extends Client> {
+public class ClientRepository<T extends Client>  implements Serializable {
 
     private final List<T> clientList = new ArrayList<>();
 
@@ -61,8 +61,12 @@ public class ClientRepository<T extends Client> {
     }
 
     public List<T> getClientList(){
+        System.out.println("Number of clients: " + this.clientList.size());
         return this.clientList;
     }
+
+
+
 
     //    public void updateFirstName(T client, String firstName){
 //        if (this.clientList.contains(client))

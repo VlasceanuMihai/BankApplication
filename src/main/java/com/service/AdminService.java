@@ -1,5 +1,6 @@
 package com.service;
 
+import com.exceptions.GetClientException;
 import com.repository.ClientRepository;
 import com.users.Client;
 import com.users.IndividualClient;
@@ -50,6 +51,11 @@ public class AdminService {
 
     public void removeClient(String username){
         this.clientRepository.removeClient(username);
+        try {
+            this.clientRepository.findClientByUsername(username).decrementNumberOfClients();
+        }catch (GetClientException e){
+            System.out.println("A user with username: " + username + " doesn't exist!\n");
+        }
     }
 
     public List<Client> getClientList(){

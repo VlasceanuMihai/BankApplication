@@ -22,6 +22,8 @@ public abstract class Client implements Comparable<Client>{
     @Getter
     @Setter
     private static Long id = 0L;
+    @Getter
+    private static Long numberOfClients = 0L;
     private String username;
     private String password;
     private boolean isLogged;
@@ -30,10 +32,15 @@ public abstract class Client implements Comparable<Client>{
 
     public Client(String username, String password) {
         id++;
+        ++numberOfClients;
         this.username = username;
         this.password = password;
         this.debitList = new ArrayList<>();
         this.creditList = new ArrayList<>();
+    }
+
+    public void decrementNumberOfClients(){
+        numberOfClients--;
     }
 
     @Override

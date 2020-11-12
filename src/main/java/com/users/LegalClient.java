@@ -3,6 +3,8 @@ package com.users;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /**
  * Project: AplicatieBancara
  * Author: mihai
@@ -11,7 +13,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class LegalClient extends Client{
+public class LegalClient extends Client implements Serializable {
 
     private String companyName;
     private String cui;

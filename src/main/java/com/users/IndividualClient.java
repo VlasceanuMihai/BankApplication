@@ -3,6 +3,8 @@ package com.users;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /**
  * Project: AplicatieBancara
  * Author: mihai
@@ -11,18 +13,18 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class IndividualClient extends Client{
+public class IndividualClient extends Client implements Serializable {
 
     private String firstName;
     private String lastName;
-    private String CNP;
+    private String cnp;
     private double wage;
 
-    public IndividualClient(String username, String password, String firstName, String lastName, String CNP, double wage) {
+    public IndividualClient(String username, String password, String firstName, String lastName, String cnp, double wage) {
         super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
-        this.CNP = CNP;
+        this.cnp = cnp;
         this.wage = wage;
     }
 
@@ -31,7 +33,7 @@ public class IndividualClient extends Client{
         return "IndividualPerson{" + super.toString() +
                 ", firstName = '" + firstName + '\'' +
                 ", lastName = '" + lastName + '\'' +
-                ", CNP = '" + CNP + '\'' +
+                ", CNP = '" + cnp + '\'' +
                 ", wage = '" + wage + '\'' + '}';
     }
 
