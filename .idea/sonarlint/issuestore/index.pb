@@ -9,8 +9,6 @@ b
 +src/main/java/com/service/AdminService.java,1\e\1e2b040f21d819c4712ccd659d18e1814eab66e7
 b
 2src/main/java/com/controllers/AdminController.java,4\9\495e4ad57387f991bbf3dedc2f0577db9540c711
-R
-"src/main/java/com/Application.java,0\6\060e4465fa508961e9fd44875c5a850a9925ebfe
 V
 &src/main/java/com/dto/Transaction.java,f\a\fa8988053e3425901046f5c5c70a9a17d2ff8936
 l
@@ -45,3 +43,7 @@ b
 2src/main/java/com/repository/ClientRepository.java,5\4\5446910d37513c4c727807d64eb01ee05c00f77f
 c
 3src/main/java/com/controllers/ClientController.java,e\7\e7bb2d72a706a664660a55668e23301a85bfba1c
+W
+'src/test/java/com/AdminServiceTest.java,1\8\18c57595d2390843dd790d6e0aa1af0355f6271d
+T
+$src/main/java/com/config/Config.java,2\a\2aa44d1376e22222dfdafb515d2a7c0babe282c3

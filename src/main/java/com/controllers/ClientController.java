@@ -1,6 +1,8 @@
 package com.controllers;
 
 import com.service.ClientService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Project: AplicatieBancara
@@ -17,10 +19,12 @@ import com.service.ClientService;
     - Genereaza un raport al tuturor tranzactiilor dintr-un cont
  */
 
+@Component
 public class ClientController {
 
     private ClientService clientService;
 
+    @Autowired
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }

@@ -22,6 +22,8 @@ public abstract class Client implements Comparable<Client>{
     @Getter
     @Setter
     private static Long counter = 0L;
+    @Getter
+    private static Long numberOfClients = 0L;
     private String username;
     private String password;
     private boolean isLogged;
@@ -29,8 +31,6 @@ public abstract class Client implements Comparable<Client>{
     private List<CreditBankAccountDTO> creditList;
 
     private Long uniqId = 0L;
-    @Getter
-    private static Long numberOfClients = 0L;
 
     public Client(String username, String password) {
         ++numberOfClients;
@@ -40,7 +40,7 @@ public abstract class Client implements Comparable<Client>{
         this.creditList = new ArrayList<>();
     }
 
-    public void generateId(){
+    public void generateId() {
         this.uniqId = counter++;
     }
 

@@ -2,6 +2,7 @@ package com.service;
 
 import com.repository.ClientRepository;
 import com.users.Client;
+import org.springframework.stereotype.Component;
 
 /**
  * Project: AplicatieBancara
@@ -18,6 +19,7 @@ import com.users.Client;
     - Genereaza un raport al tuturor tranzactiilor dintr-un cont
  */
 
+@Component
 public class ClientService {
 
     private ClientRepository<Client> clientRepository;

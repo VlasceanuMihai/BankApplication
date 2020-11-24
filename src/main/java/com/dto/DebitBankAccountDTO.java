@@ -1,5 +1,8 @@
 package com.dto;
 
+import lombok.Data;
+import lombok.Getter;
+
 import java.util.UUID;
 
 /**
@@ -10,8 +13,10 @@ import java.util.UUID;
 
 // DebitBankAccountDTO (DTO = data transfer object) contine datele unui cont de debit: id, IBAN, amount, ownerId
 
+@Data
 public class DebitBankAccountDTO {
 
+    @Getter
     private static Long counter = 0L;
     private Long id = 0L;
     private Long ownerId;

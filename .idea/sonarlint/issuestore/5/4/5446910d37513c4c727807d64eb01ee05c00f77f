@@ -1,0 +1,14 @@
+
+S	java:S106"9Replace this use of System.out or System.err by a logger.(äõ‰¢8Ä—­¹Û.
+X	java:S106"9Replace this use of System.out or System.err by a logger.(ş®ªÊşÿÿÿÿ8ÿ£ãäÛ.
+k
+java:S1192"PDefine a constant instead of duplicating this literal " doesn't exist!" 3 times.(İò´8ÿ£ãäÛ.
+|
+java:S1192"aDefine a constant instead of duplicating this literal "[ERROR] The user with username: " 3 times.(İò´8ÿ£ãäÛ.
+X	java:S106"9Replace this use of System.out or System.err by a logger.(ªƒ”Âüÿÿÿÿ8éÏü¸Û.
+R	java:S106"9Replace this use of System.out or System.err by a logger.(‚­Æk8ÿ£ãäÛ.
+V	java:S125"<This block of commented-out lines of code should be removed.(­Ëàœ8ñöÿ»Û.
+V	java:S125"<This block of commented-out lines of code should be removed.(ËØÛ¼8İÃı½Û.
+S	java:S106"9Replace this use of System.out or System.err by a logger.(İò´8ÿ£ãäÛ.
+X	java:S106"9Replace this use of System.out or System.err by a logger.(­ê›¤ÿÿÿÿÿ8´‘•ºÛ.
+R	java:S106"9Replace this use of System.out or System.err by a logger.(‚­Æk8ÿ£ãäÛ.

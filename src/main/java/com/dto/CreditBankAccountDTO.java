@@ -1,5 +1,6 @@
 package com.dto;
 
+import lombok.Data;
 import lombok.Getter;
 
 import java.util.UUID;
@@ -12,15 +13,16 @@ import java.util.UUID;
 
 // CreditBankAccountDTO contine datele unui cont de credit: id, amount, ownerId, limitAmount
 
-@Getter
+@Data
 public class CreditBankAccountDTO {
 
-    private double limitAmount;
+    @Getter
     private static Long counter = 0L;
     private Long id = 0L;
     private Long ownerId;
     private UUID iban;
     private double amount;
+    private double limitAmount;
 
     public CreditBankAccountDTO(Long ownerId, double amount, double limitAmount) {
         this.id = counter++;
