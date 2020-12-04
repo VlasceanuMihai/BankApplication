@@ -2,6 +2,7 @@ com\repository\CreditBankAccountRepository.class
 com\repository\ClientRepository.class
 com\dto\Transaction.class
 com\users\LegalClient.class
+com\config\Config.class
 com\service\LoginService.class
 com\controllers\LoginController.class
 com\service\ClientService.class

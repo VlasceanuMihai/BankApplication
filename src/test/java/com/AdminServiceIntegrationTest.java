@@ -3,6 +3,8 @@ package com;
 import com.config.Config;
 import com.controllers.AdminController;
 import com.controllers.LoginController;
+import com.service.AdminService;
+import com.service.LoginService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +25,10 @@ import java.io.IOException;
 public class AdminServiceIntegrationTest {
 
     @Autowired
-    private AdminController adminController;
+    private AdminService adminService;
 
     @Autowired
-    private LoginController loginController;
+    private LoginService loginService;
 
 //    @Test
 //    public void createIndividualClient_(){
@@ -37,35 +39,35 @@ public class AdminServiceIntegrationTest {
     public void testCreateNewUser() {
 
         // Create/remove clients
-        adminController.createIndividualClient("mihai", "1234", "Mihai",
+        adminService.createIndividualClient("mihai", "1234", "Mihai",
                 "Vlasceanu", "1960122440022", 3700);
-        adminController.createDebitBankAccount("mihai", 19000);
-        adminController.createCreditBankAccount("mihai", 2500);
+        adminService.createDebitBankAccount("mihai", 19000);
+        adminService.createCreditBankAccount("mihai", 2500);
 
-        adminController.createIndividualClient("mihai", "1234", "wdaw",
+        adminService.createIndividualClient("mihai", "1234", "wdaw",
                 "esgfswe", "1960122440022", 6700);
 
-        adminController.createIndividualClient("vlasceanu", "123456", "Vls",
+        adminService.createIndividualClient("vlasceanu", "123456", "Vls",
                 "Vls", "1960122357222", 4000);
-        adminController.createDebitBankAccount("mihai", 4000);
-        adminController.createCreditBankAccount("mihai", 1000);
-        adminController.createDebitBankAccount("vlasceanu", 1200);
-        adminController.createCreditBankAccount("vlasceanu", 250);
+        adminService.createDebitBankAccount("mihai", 4000);
+        adminService.createCreditBankAccount("mihai", 1000);
+        adminService.createDebitBankAccount("vlasceanu", 1200);
+        adminService.createCreditBankAccount("vlasceanu", 250);
 
-        adminController.createLegalClient("mihai", "abcde", "Mihai SRL", "123456",
+        adminService.createLegalClient("mihai", "abcde", "Mihai SRL", "123456",
                 10, 2000);
 
-        adminController.createLegalClient("andrei", "123asd", "Andrei SRL", "6543",
+        adminService.createLegalClient("andrei", "123asd", "Andrei SRL", "6543",
                 23, 4323);
 
-        adminController.createIndividualClient("teo", "123", "Teo",
+        adminService.createIndividualClient("teo", "123", "Teo",
                 "Teo", "4562352", 2540);
 
         // Login
-        loginController.login("vlasceanu", "123456");
-        loginController.login("andrei", "123456");
-        loginController.login("andrei", "123asd");
-        adminController.removeClient("andrei");
+        loginService.login("vlasceanu", "123456");
+        loginService.login("andrei", "123456");
+        loginService.login("andrei", "123asd");
+        adminService.removeClient("andrei");
 //        loginController.login("andrei", "123asd");
     }
 }

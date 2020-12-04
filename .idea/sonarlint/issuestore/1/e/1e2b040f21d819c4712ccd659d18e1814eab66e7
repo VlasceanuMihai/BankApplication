@@ -1,12 +1,12 @@
 
-R	java:S106"9Replace this use of System.out or System.err by a logger.(¡è¿)8±İâİß.
-R	java:S106"9Replace this use of System.out or System.err by a logger.(¡è¿)8Ç›ãİß.
-l
-java:S1192"RDefine a constant instead of duplicating this literal " doesn't exist!\n" 3 times.(¡è¿)8Ç›ãİß.
-‡
-java:S1130"lRemove the declaration of thrown exception 'com.exceptions.GetClientException' which is a runtime exception.(¬Ÿ´8çèÜİß.
-R	java:S106"9Replace this use of System.out or System.err by a logger.(¡è¿)8öğ°İß.
-X	java:S106"9Replace this use of System.out or System.err by a logger.(‹†ğÁüÿÿÿÿ8öğ°İß.
-X	java:S106"9Replace this use of System.out or System.err by a logger.(ÇÚ¡Üÿÿÿÿÿ8öğ°İß.
-{
-java:S1192"aDefine a constant instead of duplicating this literal "[INVALID] A user with username: " 3 times.(¡è¿)8Ç›ãİß.
+Z	java:S106e"9Replace this use of System.out or System.err by a logger.(ÇÚ¡Üÿÿÿÿÿ8öğ°İß.
+‰
+java:S1130="lRemove the declaration of thrown exception 'com.exceptions.GetClientException' which is a runtime exception.(¬Ÿ´8çèÜİß.
+}
+java:S1192A"aDefine a constant instead of duplicating this literal "[INVALID] A user with username: " 6 times.(¡è¿)8Ç›ãİß.
+T	java:S106T"9Replace this use of System.out or System.err by a logger.(¡è¿)8Ç›ãİß.
+n
+java:S1192A"RDefine a constant instead of duplicating this literal " doesn't exist!\n" 6 times.(¡è¿)8Ç›ãİß.
+Z	java:S106R"9Replace this use of System.out or System.err by a logger.(‹†ğÁüÿÿÿÿ8öğ°İß.
+T	java:S106g"9Replace this use of System.out or System.err by a logger.(¡è¿)8öğ°İß.
+T	java:S106A"9Replace this use of System.out or System.err by a logger.(¡è¿)8±İâİß.

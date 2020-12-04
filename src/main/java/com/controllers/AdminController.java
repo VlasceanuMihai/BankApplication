@@ -4,6 +4,9 @@ import com.users.Client;
 import com.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -15,7 +18,7 @@ import java.util.List;
 
 // Expune functionalitatea pe care o poate apela un administrator.
 
-@Component
+@Controller
 public class AdminController {
 
     private AdminService adminService;
@@ -26,13 +29,10 @@ public class AdminController {
     }
 
     // Create individual client
-    public void createIndividualClient(String username,
-                                       String password,
-                                       String firstName,
-                                       String lastName,
-                                       String cnp,
-                                       double wage) {
-        this.adminService.createIndividualClient(username, password, firstName, lastName, cnp, wage);
+    @PostMapping(value = "/createIndividualClient")
+    public void createIndividualClient(Client client, Model model) {
+//        this.adminService.createIndividualClient(username, password, firstName, lastName, cnp, wage);
+//        this.adminService.createIndividualClient(username, password, firstName, lastName, cnp, wage);
     }
 
     // Create legal client

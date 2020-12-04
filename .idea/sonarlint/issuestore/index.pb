@@ -43,7 +43,13 @@ b
 2src/main/java/com/repository/ClientRepository.java,5\4\5446910d37513c4c727807d64eb01ee05c00f77f
 c
 3src/main/java/com/controllers/ClientController.java,e\7\e7bb2d72a706a664660a55668e23301a85bfba1c
-W
-'src/test/java/com/AdminServiceTest.java,1\8\18c57595d2390843dd790d6e0aa1af0355f6271d
 T
 $src/main/java/com/config/Config.java,2\a\2aa44d1376e22222dfdafb515d2a7c0babe282c3
+[
++src/test/java/com/AdminServiceUnitTest.java,2\5\25e7bf2c7b6cf48a60e2f9fdeeae56173ac3e05a
+‚
+Rtarget/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst,8\a\8ae396f369da14bb5c0973286facff8fb2c70d56
+€
+Ptarget/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst,3\d\3da01db98b88a8057c03354880f06dba49d3e795
+b
+2src/test/java/com/AdminServiceIntegrationTest.java,3\8\38bc4922e910f46489bc92bff93956e84d214da9
