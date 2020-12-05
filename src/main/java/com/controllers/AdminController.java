@@ -3,6 +3,7 @@ package com.controllers;
 import com.users.Client;
 import com.service.AdminService;
 import com.users.IndividualClient;
+import com.users.LegalClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,49 +34,46 @@ public class AdminController {
     }
 
 
-//    @GetMapping(value = "/individualClientRegisterPage")
-//    public String redirectToIndividualClientRegisterPage(){
-//        return "redirect:individualClientRegister";
-//    }
-
     @GetMapping(value = "/individualClientRegisterPage")
-    public String individualClientRegisterPage(){
+    public String individualClientRegisterPage() {
         System.out.println("Individual Register Page Requested");
         return "individualClientRegister";
     }
 
     @PostMapping(value = "/createIndividualClient")
     public String createIndividualClient(@Validated IndividualClient client, Model model) {
+        this.adminService.createIndividualClient(client);
+
         model.addAttribute("ID", client.getUniqId());
         model.addAttribute("Username", client.getUsername());
         model.addAttribute("FirstName", client.getFirstName());
         model.addAttribute("LastName", client.getLastName());
         model.addAttribute("CNP", client.getCnp());
         model.addAttribute("Wage", client.getWage());
-        System.out.println(client.getUsername());
-        this.adminService.createIndividualClient(client);
 
         return "createIndividualClient";
     }
 
-    @GetMapping(value = "/legalClientPage")
-    public String redirectToCreateLegalClientPage(){
+    @GetMapping(value = "/legalClientRegisterPage")
+    public String legalClientRegisterPage() {
+        System.out.println("Legal Register Page Requested");
         return "legalClientRegister";
     }
 
     @PostMapping(value = "/createLegalClient")
-    public String createLegalClient(String username,
-                                    String password,
-                                    String companyName,
-                                    String cui,
-                                    double costTransaction,
-                                    double capital) {
-        this.adminService.createLegalClient(username, password, companyName, cui, costTransaction, capital);
+    public String createLegalClient(LegalClient client, Model model) {
+        this.adminService.createLegalClient(client);
 
-        return "legalClientRegister";
+        model.addAttribute("ID", client.getUniqId());
+        model.addAttribute("Username", client.getUsername());
+        model.addAttribute("CompanyName", client.getCompanyName());
+        model.addAttribute("CUI", client.getCui());
+        model.addAttribute("CostTransaction", client.getCostTransaction());
+        model.addAttribute("Capital", client.getCapital());
+
+        return "createLegalClient";
     }
 
-    // Remove client
     public void removeClient(String username) {
         this.adminService.removeClient(username);
     }

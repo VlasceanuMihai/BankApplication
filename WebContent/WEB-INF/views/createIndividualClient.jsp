@@ -8,6 +8,7 @@
 </head>
 <body>
 <h3>Salut ${Username}</h3>
+<p>- Individual client -</p>
 
 <table>
     <tr>

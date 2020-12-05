@@ -43,17 +43,13 @@ public class AdminService {
     }
 
     // Create legal client
-    public void createLegalClient(String username,
-                                  String password,
-                                  String companyName,
-                                  String cui,
-                                  double costTransaction,
-                                  double capital) {
-        this.clientRepository.createClient(new LegalClient(username, password, companyName, cui, costTransaction, capital));
+    public void createLegalClient(LegalClient client) {
+        System.out.println(client);
+        this.clientRepository.createClient(client);
     }
 
     // Remove client  based on username
-    public void removeClient(String username) throws GetClientException{
+    public void removeClient(String username) {
         try {
             this.clientRepository.findClientByUsername(username).decrementNumberOfClients();
         } catch (GetClientException e) {

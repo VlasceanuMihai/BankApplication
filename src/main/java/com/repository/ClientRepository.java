@@ -22,13 +22,14 @@ public class ClientRepository<T extends Client> implements Serializable {
     private final List<T> clientList = new ArrayList<>();
 
     public void createClient(T client) {
-        Optional<T> addedClient =  clientList.stream().filter(c -> c.getUsername().equalsIgnoreCase(client.getUsername())).findFirst();
-        if (!addedClient.isPresent()){
+        System.out.println(client.getUsername());
+        Optional<T> addedClient = clientList.stream().filter(c -> c.getUsername().equalsIgnoreCase(client.getUsername())).findFirst();
+        if (!addedClient.isPresent()) {
             this.clientList.add(client);
             client.generateId();
             System.out.println("[REGISTER SUCCESS] User with username: " + client.getUsername() + " added successfully.");
             System.out.println(this.getClientList() + "\n");
-        }else {
+        } else {
             System.out.println("A user with this username: " + client.getUsername() + " already exists!\n");
         }
 

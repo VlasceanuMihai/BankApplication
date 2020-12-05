@@ -10,8 +10,7 @@ import java.io.Serializable;
  * Date: 11/4/2020
  */
 
-@Getter
-@Setter
+@Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class IndividualClient extends Client implements Serializable {
@@ -21,7 +20,7 @@ public class IndividualClient extends Client implements Serializable {
     private String cnp;
     private double wage;
 
-    public IndividualClient(){
+    public IndividualClient() {
         super();
     }
 
@@ -32,13 +31,4 @@ public class IndividualClient extends Client implements Serializable {
         this.cnp = cnp;
         this.wage = wage;
     }
-
-//    @Override
-//    public String toString() {
-//        return "IndividualPerson{" + super.toString() +
-//                ", firstName = '" + firstName + '\'' +
-//                ", lastName = '" + lastName + '\'' +
-//                ", CNP = '" + cnp + '\'' +
-//                ", wage = '" + wage + '\'' + '}';
-//    }
 }
