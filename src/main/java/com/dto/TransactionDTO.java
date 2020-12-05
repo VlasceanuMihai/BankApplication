@@ -13,7 +13,7 @@ import lombok.Data;
  */
 
 @Data
-public class Transaction {
+public class TransactionDTO {
 
     private Long transactionId;
     private String sender;

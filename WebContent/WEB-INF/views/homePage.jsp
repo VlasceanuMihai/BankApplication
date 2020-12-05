@@ -15,11 +15,11 @@
     <P>Your IP address: ${ipAddress}</P>
 
 <form action="adminPanel" method="get">
-    <input type="submit" value="Admin">
+    <input type="submit" value="Admin panel">
 </form>
 
     <form action="clientPanel" method="get">
-    <input type="submit" value="Client">
+    <input type="submit" value="Client panel">
 </form>
 
 </body>

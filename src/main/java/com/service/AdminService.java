@@ -37,14 +37,9 @@ public class AdminService {
     }
 
 
-    // Create individual client
-    public void createIndividualClient(String username,
-                                       String password,
-                                       String fistName,
-                                       String lastName,
-                                       String cnp,
-                                       double wage) {
-        this.clientRepository.addClient(new IndividualClient(username, password, fistName, lastName, cnp, wage));
+    public void createIndividualClient(IndividualClient client) {
+        System.out.println(client);
+        this.clientRepository.createClient(client);
     }
 
     // Create legal client
@@ -54,7 +49,7 @@ public class AdminService {
                                   String cui,
                                   double costTransaction,
                                   double capital) {
-        this.clientRepository.addClient(new LegalClient(username, password, companyName, cui, costTransaction, capital));
+        this.clientRepository.createClient(new LegalClient(username, password, companyName, cui, costTransaction, capital));
     }
 
     // Remove client  based on username

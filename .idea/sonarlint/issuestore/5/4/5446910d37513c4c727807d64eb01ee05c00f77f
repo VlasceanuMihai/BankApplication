@@ -1,16 +1,16 @@
 
 Z
 java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8»ŠŠãß.
-~
-java:S1192,"aDefine a constant instead of duplicating this literal "[ERROR] The user with username: " 3 times.(İò´8ÿ£ãäÛ.
-T	java:S106)"9Replace this use of System.out or System.err by a logger.(‚­Æk8ÿ£ãäÛ.
-X	java:S125J"<This block of commented-out lines of code should be removed.(ËØÛ¼8İÃı½Û.
-X	java:S125_"<This block of commented-out lines of code should be removed.(­Ëàœ8ñöÿ»Û.
-T	java:S106"9Replace this use of System.out or System.err by a logger.(‚­Æk8ÿ£ãäÛ.
-Z	java:S106("9Replace this use of System.out or System.err by a logger.(­ê›¤ÿÿÿÿÿ8´‘•ºÛ.
+Z	java:S106 "9Replace this use of System.out or System.err by a logger.(ªƒ”Âüÿÿÿÿ8º®§äß.
 Z	java:S106E"9Replace this use of System.out or System.err by a logger.(ş®ªÊşÿÿÿÿ8ÿ£ãäÛ.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(äõ‰¢8Ä—­¹Û.
+X	java:S125J"<This block of commented-out lines of code should be removed.(ËØÛ¼8İÃı½Û.
 m
 java:S1192,"PDefine a constant instead of duplicating this literal " doesn't exist!" 3 times.(İò´8ÿ£ãäÛ.
-Z	java:S106 "9Replace this use of System.out or System.err by a logger.(ªƒ”Âüÿÿÿÿ8º®§äß.
+~
+java:S1192,"aDefine a constant instead of duplicating this literal "[ERROR] The user with username: " 3 times.(İò´8ÿ£ãäÛ.
+T	java:S106"9Replace this use of System.out or System.err by a logger.(‚­Æk8ÿ£ãäÛ.
+X	java:S125_"<This block of commented-out lines of code should be removed.(­Ëàœ8ñöÿ»Û.
 U	java:S106,"9Replace this use of System.out or System.err by a logger.(İò´8ÿ£ãäÛ.
+Z	java:S106("9Replace this use of System.out or System.err by a logger.(­ê›¤ÿÿÿÿÿ8´‘•ºÛ.
+T	java:S106)"9Replace this use of System.out or System.err by a logger.(‚­Æk8ÿ£ãäÛ.
+U	java:S106"9Replace this use of System.out or System.err by a logger.(äõ‰¢8Ä—­¹Û.

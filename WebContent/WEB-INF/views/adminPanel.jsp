@@ -10,34 +10,38 @@
 <body>
 <h1>Admin functionality</h1>
 
-<form action= "addUser" method="post">
-<%--    <table>--%>
-<%--        <tr>--%>
-<%--            <td><label path = "userName">Username</label></td>--%>
-<%--            <td><input type="text" name="userName"></td>--%>
-<%--        </tr>--%>
-
-<%--        <tr>--%>
-<%--            <td><label path = "firstName">First name</label></td>--%>
-<%--            <td><input type="text" name="firstName"></td>--%>
-<%--        </tr>--%>
-
-<%--        <tr>--%>
-<%--            <td><label path = "lastName">Last name</label></td>--%>
-<%--            <td><input type="text" name="lastName"></td>--%>
-<%--        </tr>--%>
-
-<%--        <tr>--%>
-<%--            <td><label path = "age">Age</label></td>--%>
-<%--            <td><input type="number" name="age"></td>--%>
-<%--        </tr>--%>
-
-        <tr>
-            <td colspan = "2">
-                <input type="submit" value="Submit">
-            </td>
-        </tr>
+<form action= "individualClientRegisterPage" method="get">
+    <table>
+    <tr>
+        <td colspan = "2">
+            <input type="submit" value="Create individual client">
+        </td>
+    </tr>
     </table>
+</form>
+
+<form action="legalClientPage" method="get">
+    <tr>
+        <td colspan = "2">
+            <input type="submit" value="Create legal client">
+        </td>
+    </tr>
+</form>
+
+<form action="createDebitBankAccount" method="post">
+    <tr>
+        <td colspan = "2">
+            <input type="submit" value="Create debit bank account">
+        </td>
+    </tr>
+</form>
+
+<form action="createCreditBankAccount" method="post">
+    <tr>
+        <td colspan = "2">
+            <input type="submit" value="Create credit bank account">
+        </td>
+    </tr>
 </form>
 
 </body>

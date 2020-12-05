@@ -1,7 +1,6 @@
 package com.users;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -12,7 +11,8 @@ import java.io.Serializable;
  */
 
 @Getter
-@Setter
+@EqualsAndHashCode(callSuper = true)
+@ToString
 public class LegalClient extends Client implements Serializable {
 
     private String companyName;
@@ -28,17 +28,13 @@ public class LegalClient extends Client implements Serializable {
         this.capital = capital;
     }
 
-    @Override
-    public String toString() {
-        return "LegalPerson{" + super.toString() +
-                "companyName = '" + companyName + '\'' +
-                ", cui = '" + cui + '\'' +
-                ", costTransaction = '" + costTransaction + '\'' +
-                ", capital=" + capital + '\'' + '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "LegalPerson{" + super.toString() +
+//                "companyName = '" + companyName + '\'' +
+//                ", cui = '" + cui + '\'' +
+//                ", costTransaction = '" + costTransaction + '\'' +
+//                ", capital=" + capital + '\'' + '}';
+//    }
 
-    @Override
-    public boolean equals(Object o){
-        return super.equals(o);
-    }
 }

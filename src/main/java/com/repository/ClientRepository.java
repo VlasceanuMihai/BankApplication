@@ -21,7 +21,7 @@ public class ClientRepository<T extends Client> implements Serializable {
 
     private final List<T> clientList = new ArrayList<>();
 
-    public void addClient(T client) {
+    public void createClient(T client) {
         Optional<T> addedClient =  clientList.stream().filter(c -> c.getUsername().equalsIgnoreCase(client.getUsername())).findFirst();
         if (!addedClient.isPresent()){
             this.clientList.add(client);

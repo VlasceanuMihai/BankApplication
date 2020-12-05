@@ -1,7 +1,6 @@
 package com.users;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -13,12 +12,18 @@ import java.io.Serializable;
 
 @Getter
 @Setter
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class IndividualClient extends Client implements Serializable {
 
     private String firstName;
     private String lastName;
     private String cnp;
     private double wage;
+
+    public IndividualClient(){
+        super();
+    }
 
     public IndividualClient(String username, String password, String firstName, String lastName, String cnp, double wage) {
         super(username, password);
@@ -28,17 +33,12 @@ public class IndividualClient extends Client implements Serializable {
         this.wage = wage;
     }
 
-    @Override
-    public String toString() {
-        return "IndividualPerson{" + super.toString() +
-                ", firstName = '" + firstName + '\'' +
-                ", lastName = '" + lastName + '\'' +
-                ", CNP = '" + cnp + '\'' +
-                ", wage = '" + wage + '\'' + '}';
-    }
-
-    @Override
-    public boolean equals(Object o){
-        return super.equals(o);
-    }
+//    @Override
+//    public String toString() {
+//        return "IndividualPerson{" + super.toString() +
+//                ", firstName = '" + firstName + '\'' +
+//                ", lastName = '" + lastName + '\'' +
+//                ", CNP = '" + cnp + '\'' +
+//                ", wage = '" + wage + '\'' + '}';
+//    }
 }

@@ -2,10 +2,12 @@ package com.controllers;
 
 import com.users.Client;
 import com.service.AdminService;
+import com.users.IndividualClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -16,7 +18,9 @@ import java.util.List;
  * Date: 11/8/2020
  */
 
-// Expune functionalitatea pe care o poate apela un administrator.
+/*
+ * Expune functionalitatea pe care o poate apela un administrator.
+ */
 
 @Controller
 public class AdminController {
@@ -28,21 +32,47 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    // Create individual client
-    @PostMapping(value = "/createIndividualClient")
-    public void createIndividualClient(Client client, Model model) {
-//        this.adminService.createIndividualClient(username, password, firstName, lastName, cnp, wage);
-//        this.adminService.createIndividualClient(username, password, firstName, lastName, cnp, wage);
+
+//    @GetMapping(value = "/individualClientRegisterPage")
+//    public String redirectToIndividualClientRegisterPage(){
+//        return "redirect:individualClientRegister";
+//    }
+
+    @GetMapping(value = "/individualClientRegisterPage")
+    public String individualClientRegisterPage(){
+        System.out.println("Individual Register Page Requested");
+        return "individualClientRegister";
     }
 
-    // Create legal client
-    public void createLegalClient(String username,
-                                  String password,
-                                  String companyName,
-                                  String cui,
-                                  double costTransaction,
-                                  double capital) {
+    @PostMapping(value = "/createIndividualClient")
+    public String createIndividualClient(@Validated IndividualClient client, Model model) {
+        model.addAttribute("ID", client.getUniqId());
+        model.addAttribute("Username", client.getUsername());
+        model.addAttribute("FirstName", client.getFirstName());
+        model.addAttribute("LastName", client.getLastName());
+        model.addAttribute("CNP", client.getCnp());
+        model.addAttribute("Wage", client.getWage());
+        System.out.println(client.getUsername());
+        this.adminService.createIndividualClient(client);
+
+        return "createIndividualClient";
+    }
+
+    @GetMapping(value = "/legalClientPage")
+    public String redirectToCreateLegalClientPage(){
+        return "legalClientRegister";
+    }
+
+    @PostMapping(value = "/createLegalClient")
+    public String createLegalClient(String username,
+                                    String password,
+                                    String companyName,
+                                    String cui,
+                                    double costTransaction,
+                                    double capital) {
         this.adminService.createLegalClient(username, password, companyName, cui, costTransaction, capital);
+
+        return "legalClientRegister";
     }
 
     // Remove client
