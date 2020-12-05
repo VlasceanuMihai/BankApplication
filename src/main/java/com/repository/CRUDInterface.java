@@ -1,5 +1,6 @@
 package com.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -9,17 +10,19 @@ import java.util.Optional;
  */
 public interface CRUDInterface<T> {
 
-    T save(T object);
+    Optional<T> save(T object);
 
-    void delete(String username);
+    boolean delete(String username);
 
-    boolean exists(String username);
+//    boolean exists(String username);
 
-    Iterable<T> findAll();
+    List<T> findAll();
 
-    Optional<T> find(String username);
+    Optional<T> findById(Long ownerId);
 
-    Optional<T> find(T object);
+    Optional<T> findByUsername(String username);
+
+    Optional<T> findByClient(T object);
 
     Long countAll();
 

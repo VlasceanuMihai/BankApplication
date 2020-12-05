@@ -6,6 +6,8 @@ import com.users.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 /**
  * Project: AplicatieBancara
  * Author: mihai
@@ -23,23 +25,22 @@ public class LoginService {
     }
 
     public boolean login(String username, String password){
-        boolean doPasswordsMatch = false;
+        Optional<Client> client = this.clientClientRepository.findByUsername(username);
+        if (client.isPresent()){
+            Client existingClient = client.get();
 
-        try{
-            Client client = this.clientClientRepository.findClientByUsername(username);
-            if (password.equals(client.getPassword())){
+            if (existingClient.getPassword().equals(password)){
                 System.out.println("[LOGIN SUCCESS] Login successful! Welcome " + username + "!\n");
-                doPasswordsMatch = true;
-                client.setLogged(true);
+                existingClient.setLogged(true);
+                return true;
             }else {
-                System.out.println("[INVALID PASSWORD] Invalid password for user " + username + "!\n");
-                client.setLogged(false);
+                existingClient.setLogged(false);
+                System.out.println("[INVALID] A user with username: " + username + " doesn't exist!\n");
+                throw new GetClientException("[INVALID] A user with username: " + username + " doesn't exist!\n");
             }
-        }catch (GetClientException e){
+        }else {
             System.out.println("[INVALID] A user with username: " + username + " doesn't exist!\n");
             throw new GetClientException("[INVALID] A user with username: " + username + " doesn't exist!\n");
         }
-
-        return doPasswordsMatch;
     }
 }

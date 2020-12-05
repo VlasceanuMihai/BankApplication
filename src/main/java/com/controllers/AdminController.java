@@ -74,13 +74,13 @@ public class AdminController {
         return "createLegalClient";
     }
 
-    public void removeClient(String username) {
-        this.adminService.removeClient(username);
+    public void deleteClient(String username) {
+        this.adminService.deleteClient(username);
     }
 
     // Get client list: get all clients (Individuals + Legals)
-    public List<Client> getClientList() {
-        return this.adminService.getClientList();
+    public List<Client> getClientsList() {
+        return this.adminService.getClientsList();
     }
 
     // Create debit bank account
