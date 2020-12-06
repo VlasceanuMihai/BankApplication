@@ -1,7 +1,10 @@
 package com.dto;
 
+import com.enums.BankAccountType;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.UUID;
 
@@ -11,35 +14,20 @@ import java.util.UUID;
  * Date: 11/7/2020
  */
 
-// CreditBankAccountDTO contine datele unui cont de credit: id, amount, ownerId, limitAmount
+/*
+ * Contine datele unui cont de credit
+ */
 
-@Data
-public class CreditBankAccountDTO {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class CreditBankAccountDTO extends AbstractBankAccountDTO{
 
-    @Getter
-    private static Long counter = 0L;
-    private Long id = 0L;
-    private Long ownerId;
-    private UUID iban;
-    private double amount;
     private double limitAmount;
 
-    public CreditBankAccountDTO(Long ownerId, double amount, double limitAmount) {
-        this.id = counter++;
-        this.ownerId = ownerId;
-        this.iban = UUID.randomUUID();;
-        this.amount = amount;
+    public CreditBankAccountDTO(BankAccountType bankAccountType, Long ownerId, double amount, double limitAmount) {
+        super(bankAccountType, ownerId, amount);
         this.limitAmount = limitAmount;
     }
 
-    @Override
-    public String toString() {
-        return "CreditBankAccountDTO{" +
-                "id = " + this.id +
-                ", ownerId = " + this.ownerId +
-                ", iban = " + this.iban +
-                ", amount = " + this.amount +
-                ", limitAmount = " + this.limitAmount +
-                '}';
-    }
+
 }

@@ -1,7 +1,10 @@
 package com.dto;
 
+import com.enums.BankAccountType;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.UUID;
 
@@ -11,32 +14,15 @@ import java.util.UUID;
  * Date: 11/7/2020
  */
 
-// DebitBankAccountDTO (DTO = data transfer object) contine datele unui cont de debit: id, IBAN, amount, ownerId
+/*
+ * DebitBankAccountDTO contine datele unui cont de debit
+ */
 
-@Data
-public class DebitBankAccountDTO {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class DebitBankAccountDTO extends AbstractBankAccountDTO{
 
-    @Getter
-    private static Long counter = 0L;
-    private Long id = 0L;
-    private Long ownerId;
-    private UUID iban;
-    private double amount;
-
-    public DebitBankAccountDTO(Long ownerId, double amount) {
-        this.id = counter++;
-        this.ownerId = ownerId;
-        this.iban = UUID.randomUUID();;
-        this.amount = amount;
-    }
-
-    @Override
-    public String toString() {
-        return "DebitBankAccountDTO{" +
-                "id = " + this.id +
-                ", ownerId = " + this.ownerId +
-                ", iban = " + this.iban +
-                ", amount = " + this.amount +
-                '}';
+    public DebitBankAccountDTO(BankAccountType bankAccountType, Long ownerId, double amount) {
+        super(bankAccountType, ownerId, amount);
     }
 }

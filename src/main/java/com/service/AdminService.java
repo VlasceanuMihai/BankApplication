@@ -2,6 +2,7 @@ package com.service;
 
 import com.dto.CreditBankAccountDTO;
 import com.dto.DebitBankAccountDTO;
+import com.enums.BankAccountType;
 import com.exceptions.ClientAlreadyExistsException;
 import com.exceptions.GetClientException;
 import com.exceptions.InvalidClientException;
@@ -91,7 +92,7 @@ public class AdminService {
         Optional<Client> client = this.clientRepository.findByUsername(username);
         if (client.isPresent()) {
             Client existingClient = client.get();
-            existingClient.getDebitList().add(new DebitBankAccountDTO(existingClient.getUniqId(), amount));
+            existingClient.getDebitList().add(new DebitBankAccountDTO(BankAccountType.DEBIT, existingClient.getUniqId(), amount));
             System.out.println("[DEBIT ACCOUNT] Debit bank account created for user " + username + "!\n" + existingClient.getDebitList() + "\n");
         } else {
             System.out.println("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!\n");
@@ -112,7 +113,7 @@ public class AdminService {
                 limitAmount = ((LegalClient) existingClient).getCapital() * (10.0 / 100);
             }
 
-            existingClient.getCreditList().add(new CreditBankAccountDTO(existingClient.getUniqId(), amount, limitAmount));
+            existingClient.getCreditList().add(new CreditBankAccountDTO(BankAccountType.CREDIT, existingClient.getUniqId(), amount, limitAmount));
             System.out.println("[CREDIT ACCOUNT] Credit bank account created for user " + username + "!\n" + existingClient.getCreditList() + "\n");
         }else {
             System.out.println("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!\n");

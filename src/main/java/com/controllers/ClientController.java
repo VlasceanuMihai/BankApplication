@@ -3,6 +3,7 @@ package com.controllers;
 import com.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 /**
  * Project: AplicatieBancara
@@ -11,15 +12,10 @@ import org.springframework.stereotype.Component;
  */
 
 /*
-    - Afisaza toate conturile
-    - Afisaza soldul unui cont
-    - Transfera bani intr-un cont dupa IBAN
-    - Transfera bani intre conturile proprii
-    - Achita datorii intr-un cont de credit
-    - Genereaza un raport al tuturor tranzactiilor dintr-un cont
+ * Expune functionalitatea pe care o poate apela un client de tipul persoana fizica/ persoana juridica
  */
 
-@Component
+@Controller
 public class ClientController {
 
     private ClientService clientService;

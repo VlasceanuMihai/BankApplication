@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 @Getter
-@EqualsAndHashCode(of = {"username", "password"})
+@EqualsAndHashCode(of = {"username"})
 @ToString(of = {"username", "password", "debitList", "creditList"})
 public abstract class Client implements Comparable<Client> {
 
