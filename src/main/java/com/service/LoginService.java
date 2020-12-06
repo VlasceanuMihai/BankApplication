@@ -1,6 +1,7 @@
 package com.service;
 
 import com.exceptions.GetClientException;
+import com.exceptions.InvalidUsernameOrPasswordException;
 import com.repository.ClientRepository;
 import com.requests.LoginRequest;
 import com.users.Client;
@@ -35,8 +36,8 @@ public class LoginService {
             client.get().setLogged(true);
             return true;
         }else {
-            System.out.println("[INVALID USER] Invalid username or password!\n");
-            throw new GetClientException("[INVALID USER] Invalid username or password!\n");
+            System.out.println("[WRONG USERNAME or PASSWORD] Invalid username or password!\n");
+            throw new InvalidUsernameOrPasswordException("[WRONG USERNAME or PASSWORD] Invalid username or password!\n");
         }
     }
 }

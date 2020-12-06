@@ -4,6 +4,7 @@ import com.dto.CreditBankAccountDTO;
 import com.dto.DebitBankAccountDTO;
 import com.exceptions.ClientAlreadyExistsException;
 import com.exceptions.GetClientException;
+import com.exceptions.InvalidClientException;
 import com.repository.ClientRepository;
 import com.users.Client;
 import com.users.IndividualClient;
@@ -50,8 +51,8 @@ public class AdminService {
             System.out.println("[REGISTER SUCCESS] User with username: " + individualClient.getUsername() + " added successfully.");
             System.out.println(this.getClientsList() + "\n");
         } else {
-            System.out.println("A user with this username: " + individualClient.getUsername() + " already exists!\n");
-            throw new ClientAlreadyExistsException("A user with this username: " + individualClient.getUsername() + " already exists!");
+            System.out.println("[CLIENT ALREADY EXISTS] A user with this username: " + individualClient.getUsername() + " already exists!\n");
+            throw new ClientAlreadyExistsException("[CLIENT ALREADY EXISTS] A user with this username: " + individualClient.getUsername() + " already exists!");
         }
     }
 
@@ -64,8 +65,8 @@ public class AdminService {
             System.out.println("[REGISTER SUCCESS] User with username: " + legalClient.getUsername() + " added successfully.");
             System.out.println(this.getClientsList() + "\n");
         } else {
-            System.out.println("A user with this username: " + legalClient.getUsername() + " already exists!\n");
-            throw new ClientAlreadyExistsException("A user with this username: " + legalClient.getUsername() + " already exists!");
+            System.out.println("[CLIENT ALREADY EXISTS] A user with this username: " + legalClient.getUsername() + " already exists!\n");
+            throw new ClientAlreadyExistsException("[CLIENT ALREADY EXISTS] A user with this username: " + legalClient.getUsername() + " already exists!");
         }
     }
 
@@ -76,8 +77,8 @@ public class AdminService {
             System.out.println(this.getClientsList() + "\n");
             return true;
         } else {
-            System.out.println("[ERROR] The user with username: " + username + " doesn't exist!");
-            throw new GetClientException("[ERROR] The user with username: " + username + " doesn't exist!");
+            System.out.println("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!\n");
+            throw new InvalidClientException("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!");
         }
     }
 
@@ -93,8 +94,8 @@ public class AdminService {
             existingClient.getDebitList().add(new DebitBankAccountDTO(existingClient.getUniqId(), amount));
             System.out.println("[DEBIT ACCOUNT] Debit bank account created for user " + username + "!\n" + existingClient.getDebitList() + "\n");
         } else {
-            System.out.println("[INVALID] A user with username: " + username + " doesn't exist!\n");
-            throw new GetClientException("[INVALID] A user with username: " + username + " doesn't exist!\n");
+            System.out.println("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!\n");
+            throw new InvalidClientException("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!");
         }
     }
 
@@ -114,8 +115,8 @@ public class AdminService {
             existingClient.getCreditList().add(new CreditBankAccountDTO(existingClient.getUniqId(), amount, limitAmount));
             System.out.println("[CREDIT ACCOUNT] Credit bank account created for user " + username + "!\n" + existingClient.getCreditList() + "\n");
         }else {
-            System.out.println("[INVALID] A user with username: " + username + " doesn't exist!\n");
-            throw new GetClientException("[INVALID] A user with username: " + username + " doesn't exist!\n");
+            System.out.println("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!\n");
+            throw new InvalidClientException("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!\n");
         }
     }
 }

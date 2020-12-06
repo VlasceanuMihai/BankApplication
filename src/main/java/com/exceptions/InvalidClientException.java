@@ -5,13 +5,13 @@ package com.exceptions;
  * Author: mihai
  * Date: 12/6/2020
  */
-public class InvalidUserException extends RuntimeException{
+public class InvalidClientException extends RuntimeException{
 
-    public InvalidUserException() {
+    public InvalidClientException() {
         super();
     }
 
-    public InvalidUserException(String message) {
+    public InvalidClientException(String message) {
         super(message);
     }
 }

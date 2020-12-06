@@ -1,7 +1,5 @@
 package com.repository;
 
-import com.exceptions.ClientAlreadyExistsException;
-import com.exceptions.GetClientException;
 import com.users.Client;
 import org.springframework.stereotype.Component;
 
