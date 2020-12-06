@@ -14,7 +14,7 @@ public interface CRUDInterface<T> {
 
     boolean delete(String username);
 
-//    boolean exists(String username);
+    Optional<T> exists(String username, String password);
 
     List<T> findAll();
 

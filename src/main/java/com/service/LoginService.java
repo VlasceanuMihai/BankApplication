@@ -2,6 +2,7 @@ package com.service;
 
 import com.exceptions.GetClientException;
 import com.repository.ClientRepository;
+import com.requests.LoginRequest;
 import com.users.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,23 +25,18 @@ public class LoginService {
         this.clientClientRepository = clientClientRepository;
     }
 
-    public boolean login(String username, String password){
-        Optional<Client> client = this.clientClientRepository.findByUsername(username);
-        if (client.isPresent()){
-            Client existingClient = client.get();
+    public boolean login(LoginRequest loginRequest){
+        String username = loginRequest.getUsername();
+        String password = loginRequest.getPassword();
 
-            if (existingClient.getPassword().equals(password)){
-                System.out.println("[LOGIN SUCCESS] Login successful! Welcome " + username + "!\n");
-                existingClient.setLogged(true);
-                return true;
-            }else {
-                existingClient.setLogged(false);
-                System.out.println("[INVALID] A user with username: " + username + " doesn't exist!\n");
-                throw new GetClientException("[INVALID] A user with username: " + username + " doesn't exist!\n");
-            }
+        Optional<Client> client = this.clientClientRepository.exists(username, password);
+        if (client.isPresent()){
+            System.out.println("[LOGIN SUCCESS] Login successful! Welcome " + username + "!\n");
+            client.get().setLogged(true);
+            return true;
         }else {
-            System.out.println("[INVALID] A user with username: " + username + " doesn't exist!\n");
-            throw new GetClientException("[INVALID] A user with username: " + username + " doesn't exist!\n");
+            System.out.println("[INVALID USER] Invalid username or password!\n");
+            throw new GetClientException("[INVALID USER] Invalid username or password!\n");
         }
     }
 }

@@ -1,10 +1,13 @@
 package com.controllers;
 
+import com.requests.LoginRequest;
 import com.service.LoginService;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * Project: AplicatieBancara
@@ -12,9 +15,7 @@ import org.springframework.stereotype.Component;
  * Date: 11/4/2020
  */
 
-@Getter
-@Setter
-@Component
+@Controller
 public class LoginController {
 
     private LoginService loginService;
@@ -24,7 +25,8 @@ public class LoginController {
         this.loginService = loginService;
     }
 
-    public boolean login(String username, String password) {
-        return this.loginService.login(username, password);
+    @PostMapping(value = "/login")
+    public boolean login(LoginRequest loginRequest) {
+        return this.loginService.login(loginRequest);
     }
 }

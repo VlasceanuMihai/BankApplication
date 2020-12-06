@@ -39,6 +39,12 @@ public class ClientRepository<T extends Client> implements CRUDInterface<T>, Ser
     }
 
     @Override
+    public Optional<T> exists(String username, String password) {
+        return this.clientList.stream().filter(client -> (client.getUsername().equals(username)
+                && client.getPassword().equals(password))).findFirst();
+    }
+
+    @Override
     public Optional<T> findByUsername(String username) {
         return this.clientList.stream().filter(currentClient -> currentClient.getUsername().equals(username)).findFirst();
     }
