@@ -44,7 +44,7 @@ public class AdminController {
     public String createIndividualClient(@Validated IndividualClient client, Model model) {
         this.adminService.createIndividualClient(client);
 
-        model.addAttribute("ID", client.getUniqId());
+        model.addAttribute("ID", client.getId());
         model.addAttribute("Username", client.getUsername());
         model.addAttribute("FirstName", client.getFirstName());
         model.addAttribute("LastName", client.getLastName());
@@ -64,7 +64,7 @@ public class AdminController {
     public String createLegalClient(LegalClient client, Model model) {
         this.adminService.createLegalClient(client);
 
-        model.addAttribute("ID", client.getUniqId());
+        model.addAttribute("ID", client.getId());
         model.addAttribute("Username", client.getUsername());
         model.addAttribute("CompanyName", client.getCompanyName());
         model.addAttribute("CUI", client.getCui());
@@ -80,7 +80,7 @@ public class AdminController {
 
     // Get client list: get all clients (Individuals + Legals)
     public List<Client> getClientsList() {
-        return this.adminService.getClientsList();
+        return this.adminService.getAllClients();
     }
 
     // Create debit bank account

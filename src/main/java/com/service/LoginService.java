@@ -1,8 +1,7 @@
 package com.service;
 
-import com.exceptions.GetClientException;
 import com.exceptions.InvalidUsernameOrPasswordException;
-import com.repository.ClientRepository;
+import com.repository.client.ClientRepository;
 import com.requests.LoginRequest;
 import com.users.Client;
 import org.springframework.beans.factory.annotation.Autowired;

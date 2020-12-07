@@ -1,3 +1,7 @@
 
-8
-java:S1116"Remove this empty statement.(ÜíĞX8ƒñ¾áÛ.
+M
+java:S1128	"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8•‘¬¾ã.
+J
+java:S1128"(Remove this unused import 'lombok.Data'.(÷í«ÿÿÿÿÿ8¶›°¾ã.
+G
+java:S1128"*Remove this unused import 'lombok.Getter'.(ùÒµÙ8ş¥Ë¾ã.

@@ -1,3 +1,7 @@
 
-?
-java:S1118"Hide this public constructor.(ó¦Š”ùÿÿÿÿ8âÇ™Û.
+H
+java:S1068"&Remove this unused "id" private field.(Éÿûıÿÿÿÿ8¸‰ú¾ã.
+N
+java:S1068",Remove this unused "password" private field.(œãë­úÿÿÿÿ8ıò¾ã.
+I
+java:S1068",Remove this unused "username" private field.(‘ó¹²8îªú¾ã.

@@ -1,12 +1,24 @@
 
-‰
-java:S1130="lRemove the declaration of thrown exception 'com.exceptions.GetClientException' which is a runtime exception.(¬Ÿ´8çèÜİß.
-n
-java:S1192A"RDefine a constant instead of duplicating this literal " doesn't exist!\n" 6 times.(¡è¿)8Ç›ãİß.
-T	java:S106T"9Replace this use of System.out or System.err by a logger.(¡è¿)8Ç›ãİß.
-Z	java:S106R"9Replace this use of System.out or System.err by a logger.(‹†ğÁüÿÿÿÿ8öğ°İß.
-T	java:S106g"9Replace this use of System.out or System.err by a logger.(¡è¿)8öğ°İß.
-T	java:S106A"9Replace this use of System.out or System.err by a logger.(¡è¿)8±İâİß.
-}
-java:S1192A"aDefine a constant instead of duplicating this literal "[INVALID] A user with username: " 6 times.(¡è¿)8Ç›ãİß.
-Z	java:S106e"9Replace this use of System.out or System.err by a logger.(ÇÚ¡Üÿÿÿÿÿ8öğ°İß.
+Z	java:S106a"9Replace this use of System.out or System.err by a logger.(â—ôŞşÿÿÿÿ8ÖˆïÅã.
+T
+java:S1068%"2Remove this unused "accountService" private field.(çó³ƒüÿÿÿÿ8ÊÿÅã.
+Š
+java:S1192Q"mDefine a constant instead of duplicating this literal "[NON-EXISTENT CLIENT] A user with username: " 6 times.(µƒ 8ÖˆïÅã.
+Z	java:S106B"9Replace this use of System.out or System.err by a logger.(šîÀÕúÿÿÿÿ8æ˜‡›ã.
+Z	java:S106M"9Replace this use of System.out or System.err by a logger.(­ê›¤ÿÿÿÿÿ8‡áñÅã.
+Z	java:S106N"9Replace this use of System.out or System.err by a logger.(šîÀÕúÿÿÿÿ8ãÉ•›ã.
+o
+java:S1192Q"RDefine a constant instead of duplicating this literal " doesn't exist!\n" 4 times.(µƒ 8ÖˆïÅã.
+U	java:S106x"9Replace this use of System.out or System.err by a logger.(µƒ 8ÖˆïÅã.
+Z	java:S1064"9Replace this use of System.out or System.err by a logger.(šîÀÕúÿÿÿÿ8Œâğšã.
+U	java:S106/"9Replace this use of System.out or System.err by a logger.(ÙËŒ¿8Ì«Îã.
+U	java:S106Q"9Replace this use of System.out or System.err by a logger.(µƒ 8ÖˆïÅã.
+U	java:S106A"9Replace this use of System.out or System.err by a logger.(Çïİ„8æ˜‡›ã.
+Z	java:S106v"9Replace this use of System.out or System.err by a logger.(ö³Á‚ûÿÿÿÿ8ÖˆïÅã.
+U	java:S106="9Replace this use of System.out or System.err by a logger.(‘úú8æ˜‡›ã.
+‘
+java:S11926"tDefine a constant instead of duplicating this literal "[CLIENT ALREADY EXISTS] A user with this username: " 4 times.(ıõåì8áÛ‚¼ã.
+U	java:S1066"9Replace this use of System.out or System.err by a logger.(ıõåì8ŞŸ‚›ã.
+Z	java:S1063"9Replace this use of System.out or System.err by a logger.(¸Í·‹üÿÿÿÿ8Œâğšã.
+U	java:S106c"9Replace this use of System.out or System.err by a logger.(µƒ 8ÖˆïÅã.
+Z	java:S106D"9Replace this use of System.out or System.err by a logger.(¼üø‡øÿÿÿÿ8æ˜‡›ã.

@@ -19,33 +19,27 @@ import java.util.List;
 public abstract class Client implements Comparable<Client> {
 
     private static Long counter = 0L;
-
     @Getter
     private static Long numberOfClients = 0L;
 
+    private Long id = 0L;
     @Setter
     private String username;
-
     @Setter
     private String password;
-
     @Setter
     private boolean isLogged;
-
     @Setter
     private List<DebitBankAccountDTO> debitList;
-
     @Setter
     private List<CreditBankAccountDTO> creditList;
 
-    private Long uniqId = 0L;
 
 
     public Client() {
     }
 
     public Client(String username, String password) {
-        ++numberOfClients;
         this.username = username;
         this.password = password;
         this.debitList = new ArrayList<>();
@@ -53,7 +47,8 @@ public abstract class Client implements Comparable<Client> {
     }
 
     public void generateId() {
-        this.uniqId = counter++;
+        this.id = counter++;
+        ++numberOfClients;
     }
 
     public void decrementNumberOfClients() {

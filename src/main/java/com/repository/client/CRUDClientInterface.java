@@ -1,4 +1,4 @@
-package com.repository;
+package com.repository.client;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +8,7 @@ import java.util.Optional;
  * Author: mihai
  * Date: 12/5/2020
  */
-public interface CRUDInterface<T> {
+public interface CRUDClientInterface<T> {
 
     Optional<T> save(T object);
 
@@ -25,6 +25,4 @@ public interface CRUDInterface<T> {
     Optional<T> findByClient(T object);
 
     Long countAll();
-
-
 }

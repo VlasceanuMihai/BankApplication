@@ -1,4 +1,4 @@
-package com.repository;
+package com.repository.client;
 
 import com.users.Client;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import java.util.Optional;
  */
 
 @Component
-public class ClientRepository<T extends Client> implements CRUDInterface<T>, Serializable {
+public class ClientRepository<T extends Client> implements CRUDClientInterface<T>, Serializable {
 
     private final List<T> clientList = new ArrayList<>();
 
@@ -49,7 +49,7 @@ public class ClientRepository<T extends Client> implements CRUDInterface<T>, Ser
 
     @Override
     public Optional<T> findById(Long ownerId) {
-        return this.clientList.stream().filter(client -> client.getUniqId().equals(ownerId)).findFirst();
+        return this.clientList.stream().filter(client -> client.getId().equals(ownerId)).findFirst();
     }
 
     @Override
@@ -59,7 +59,6 @@ public class ClientRepository<T extends Client> implements CRUDInterface<T>, Ser
 
     @Override
     public List<T> findAll() {
-        System.out.println("Number of clients: " + this.clientList.size());
         return this.clientList;
     }
 
