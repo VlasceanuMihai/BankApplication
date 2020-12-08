@@ -20,15 +20,16 @@ public class ClientRepository<T extends Client> implements CRUDClientInterface<T
     private final List<T> clientList = new ArrayList<>();
 
     @Override
-    public Optional<T> save(T client) {
+    public boolean save(T client) {
         Optional<T> addedClient = this.findByUsername(client.getUsername());
 
-        if (!addedClient.isPresent()) {
+        if (addedClient.isEmpty()) {
             client.generateId();
             this.clientList.add(client);
+            return true;
         }
-
-        return addedClient;
+        System.out.println(this.clientList);
+        return false;
     }
 
     @Override

@@ -10,7 +10,7 @@ import java.util.Optional;
  */
 public interface CRUDClientInterface<T> {
 
-    Optional<T> save(T object);
+    boolean save(T object);
 
     boolean delete(String username);
 

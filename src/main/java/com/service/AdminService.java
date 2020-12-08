@@ -44,41 +44,35 @@ public class AdminService {
 
     public void createIndividualClient(IndividualClient individualClient) {
         log.info(String.valueOf(individualClient));
-        System.out.println(individualClient);
 
-        Optional<Client> client = this.clientRepository.save(individualClient);
-        if (client.isPresent()) {
-            System.out.println("[REGISTER SUCCESS] User with username: " + individualClient.getUsername() + " added successfully.");
-            System.out.println(this.getAllClients() + "\n");
-        } else {
-            System.out.println("[CLIENT ALREADY EXISTS] A user with this username: " + individualClient.getUsername() + " already exists!\n");
-            throw new ClientAlreadyExistsException("[CLIENT ALREADY EXISTS] A user with this username: " + individualClient.getUsername() + " already exists!");
+        boolean isSaved = this.clientRepository.save(individualClient);
+        if (isSaved) {
+            log.info("[REGISTER SUCCESS] User with username: " + individualClient.getUsername() + " added successfully.");
+            return;
         }
+
+        throw new ClientAlreadyExistsException("[CLIENT ALREADY EXISTS] A user with this username: " + individualClient.getUsername() + " already exists!");
     }
 
     public void createLegalClient(LegalClient legalClient) {
         log.info(String.valueOf(legalClient));
-        System.out.println(legalClient);
 
-        Optional<Client> client = this.clientRepository.save(legalClient);
-        if (client.isPresent()) {
-            System.out.println("[REGISTER SUCCESS] User with username: " + legalClient.getUsername() + " added successfully.");
-            System.out.println(this.getAllClients() + "\n");
-        } else {
-            System.out.println("[CLIENT ALREADY EXISTS] A user with this username: " + legalClient.getUsername() + " already exists!\n");
-            throw new ClientAlreadyExistsException("[CLIENT ALREADY EXISTS] A user with this username: " + legalClient.getUsername() + " already exists!");
+        boolean isSaved = this.clientRepository.save(legalClient);
+        if (isSaved) {
+            log.info("[REGISTER SUCCESS] User with username: " + legalClient.getUsername() + " added successfully.");
+            return;
         }
+
+        throw new ClientAlreadyExistsException("[CLIENT ALREADY EXISTS] A user with this username: " + legalClient.getUsername() + " already exists!");
     }
 
-    public boolean deleteClient(String username) {
+    public void deleteClient(String username) {
         boolean isDeleted = this.clientRepository.delete(username);
         if (isDeleted) {
             this.clientRepository.findByUsername(username).ifPresent(Client::decrementNumberOfClients);
-            System.out.println("[DELETE SUCCESS] User with username: " + username + " has been removed!");
-            System.out.println(this.getAllClients() + "\n");
-            return true;
+            log.info("[DELETE SUCCESS] User with username: " + username + " has been removed!");
+            return;
         } else {
-            System.out.println("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!\n");
             throw new InvalidClientException("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!");
         }
     }
@@ -92,11 +86,9 @@ public class AdminService {
         Optional<Client> client = this.clientRepository.findByUsername(username);
         if (client.isPresent()) {
             Client existingClient = client.get();
-            DebitBankAccountDTO debitBankAccountDTO = new DebitBankAccountDTO(BankAccountType.DEBIT, existingClient.getId(), amount);
-            existingClient.getDebitList().add(debitBankAccountDTO);
-            System.out.println("[DEBIT ACCOUNT] Debit bank account created for user " + username + "!\n" + existingClient.getDebitList() + "\n");
+            existingClient.getDebitList().add(new DebitBankAccountDTO(BankAccountType.DEBIT, existingClient.getId(), amount));
+            log.info("[DEBIT ACCOUNT] Debit bank account created for user " + username + "!\n" + existingClient.getDebitList() + "\n");
         } else {
-            System.out.println("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!\n");
             throw new InvalidClientException("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!");
         }
     }
@@ -115,9 +107,8 @@ public class AdminService {
             }
 
             existingClient.getCreditList().add(new CreditBankAccountDTO(BankAccountType.CREDIT, existingClient.getId(), amount, limitAmount));
-            System.out.println("[CREDIT ACCOUNT] Credit bank account created for user " + username + "!\n" + existingClient.getCreditList() + "\n");
+            log.info("[CREDIT ACCOUNT] Credit bank account created for user " + username + "!\n" + existingClient.getCreditList() + "\n");
         }else {
-            System.out.println("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!\n");
             throw new InvalidClientException("[NON-EXISTENT CLIENT] A user with username: " + username + " doesn't exist!\n");
         }
     }

@@ -26,7 +26,7 @@ public class HomeController {
         this.homeService = homeService;
     }
 
-    @GetMapping(value = "/homePage")
+    @GetMapping(value = "/home")
     public String homePage(Locale locale, Model model) throws UnknownHostException {
         System.out.println("Home Page Requested, locale = " + locale);
 
