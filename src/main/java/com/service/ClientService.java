@@ -1,5 +1,6 @@
 package com.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,15 +10,11 @@ import org.springframework.stereotype.Service;
  */
 
 /*
-    - Afisaza toate conturile
-    - Afisaza soldul unui cont
-    - Transfera bani intr-un cont dupa IBAN
-    - Transfera bani intre conturile proprii
-    - Achita datorii intr-un cont de credit
-    - Genereaza un raport al tuturor tranzactiilor dintr-un cont
+ * Executa logica efectuata de un client din aplicatie
  */
 
 @Service
+@Slf4j
 public class ClientService {
 
     private AccountService accountService;
